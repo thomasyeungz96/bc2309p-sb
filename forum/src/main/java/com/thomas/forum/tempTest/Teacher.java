@@ -1,6 +1,8 @@
 package com.thomas.forum.tempTest;
 
 import com.thomas.forum.tempTest.World;
+import com.thomas.forum.tempTest.infra.BankPublic;
+import com.thomas.forum.tempTest.infra.MoneySelection;
 
 public class Teacher extends Person {
 
@@ -11,15 +13,14 @@ public class Teacher extends Person {
     @Override
     public void grabMoney() {
 
-        int grabMoney = 100;
-
         String name = this.getName().toUpperCase();
-
+        int grabMoney = MoneySelection.ONE_HUNDRED.getMoney();
         if (grabMoney < 0) {
             System.out.println("cannot nagative");
-        } else if (!(World.publicMoney < grabMoney)) {
-            World.publicMoney -= grabMoney;
-            System.out.printf("%s Grabed %d\nWorld money balance: %d\n\n", name, grabMoney, World.publicMoney);
+        } else if (!(BankPublic.getPublicMoney() < grabMoney)) {
+            BankPublic.setPublicMoney(BankPublic.getPublicMoney() - grabMoney);
+            System.out.printf("%s Grabed %d\nWorld money balance: %d\n\n", name,
+                    grabMoney, BankPublic.getPublicMoney());
         } else {
             System.out.printf("%s cannot grab money\n", name);
         }

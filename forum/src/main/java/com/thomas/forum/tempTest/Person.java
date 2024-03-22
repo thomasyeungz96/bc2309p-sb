@@ -1,7 +1,8 @@
 package com.thomas.forum.tempTest;
 
 import java.util.Random;
-
+import com.thomas.forum.tempTest.infra.BankPublic;
+import com.thomas.forum.tempTest.infra.MoneySelection;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,24 +29,21 @@ public class Person {
 
         Random random = new Random();
         this.name = name;
-        this.age = random.nextInt(99) + 1;
+        this.age = random.nextInt(22) + 18; // from 18 to 40
         // this.money = random.nextInt(99) + 1;
-        this.money = 200;
+        this.money = random.nextInt(100); // from 0 to 100
     }
 
     public void grabMoney() {
-
-        // int worldMoney = World.publicMoney;
-
-        int grabMoney = 0;
-
+        
         String name = this.getName().toUpperCase();
-
+        int grabMoney = MoneySelection.ZERO.getMoney();
         if (grabMoney < 0) {
             System.out.println("cannot nagative");
-        } else if (!(World.publicMoney < grabMoney)) {
-            World.publicMoney -= grabMoney;
-            System.out.printf("%s Grabed %d\nWorld money balance: %d\n\n", name, grabMoney, World.publicMoney);
+        } else if (!(BankPublic.getPublicMoney() < grabMoney)) {
+            BankPublic.setPublicMoney(BankPublic.getPublicMoney() - grabMoney);
+            System.out.printf("%s Grabed %d\nWorld money balance: %d\n\n", name,
+                    grabMoney, BankPublic.getPublicMoney());
         } else {
             System.out.printf("%s cannot grab money\n", name);
         }

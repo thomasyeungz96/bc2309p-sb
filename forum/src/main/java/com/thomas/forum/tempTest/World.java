@@ -2,14 +2,10 @@ package com.thomas.forum.tempTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import com.thomas.forum.tempTest.infra.SystemRandom;
 
 public class World {
-
-    public static int publicMoney = 1000;
-
-    // public static int getPublicMoney() {
-    // return publicMoney;
-    // }
 
     public static void printLine(int num) {
         for (int n = 0; n < num; n++) {
@@ -18,16 +14,9 @@ public class World {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public static void printUsersStatus(List<Person> people) {
 
-        List<Person> people = new ArrayList<>();
-
-        people.add(new Person("bb"));
-        people.add(new Teacher("Thomas"));
-        people.add(new Accountant("Sandra"));
-        int loop = 2;
-
-        int max = -1;
+        int max;
         int numPrintName;
         int numPrintAge;
         int numPrintMoney;
@@ -41,10 +30,12 @@ public class World {
             numPrintAge = printAge.length();
             numPrintMoney = printMoney.length();
             max = -1;
-            
-            if (numPrintName >= numPrintAge)
+
+            if (numPrintName >= numPrintAge) {
                 max = numPrintName;
-            max = numPrintAge;
+            } else {
+                max = numPrintAge;
+            }
 
             if (max < numPrintMoney)
                 max = numPrintMoney;
@@ -57,11 +48,30 @@ public class World {
 
         }
 
+    }
+
+    public static void loopGrabeMoney(int loop, List<Person> people) {
         for (int i = 0; i < loop; i++) {
             for (int j = 0; j < people.size(); j++) {
                 people.get(j).grabMoney();
             }
         }
+    }
+
+    public static void main(String[] args) {
+
+        List<Person> people = new ArrayList<>();
+
+        people.add(new Person("bb"));
+        people.add(new Teacher("Daisy"));
+        people.add(new Accountant("Thomas"));
+
+        int loop = SystemRandom.fromOneto(10);
+
+        printUsersStatus(people);
+
+        World.loopGrabeMoney(loop, people);
+        System.out.println("looped: " + loop);
 
     }
 
