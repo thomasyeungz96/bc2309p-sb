@@ -1,7 +1,7 @@
 package com.thomas.forum.tempTest;
 
 import java.util.Random;
-import com.thomas.forum.tempTest.infra.BankPublic;
+import com.thomas.forum.tempTest.infra.WorldMoney;
 import com.thomas.forum.tempTest.infra.MoneySelection;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
+
 public class Person {
 
     private String name;
@@ -40,10 +41,10 @@ public class Person {
         int grabMoney = MoneySelection.ZERO.getMoney();
         if (grabMoney < 0) {
             System.out.println("cannot nagative");
-        } else if (!(BankPublic.getPublicMoney() < grabMoney)) {
-            BankPublic.setPublicMoney(BankPublic.getPublicMoney() - grabMoney);
+        } else if (!(WorldMoney.getPublicMoney() < grabMoney)) {
+            WorldMoney.setPublicMoney(WorldMoney.getPublicMoney() - grabMoney);
             System.out.printf("%s Grabed %d\nWorld money balance: %d\n\n", name,
-                    grabMoney, BankPublic.getPublicMoney());
+                    grabMoney, WorldMoney.getPublicMoney());
         } else {
             System.out.printf("%s cannot grab money\n", name);
         }

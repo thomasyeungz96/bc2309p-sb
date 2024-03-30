@@ -1,9 +1,9 @@
 package com.thomas.forum.tempTest.infra;
 
-public class BankPublic {
+public class WorldMoney {
 
 
-  public static int publicMoney = 1000;
+  private static int publicMoney = 1000;
 
   public static int getPublicMoney() {
     return publicMoney;

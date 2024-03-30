@@ -1,7 +1,7 @@
 package com.thomas.forum.tempTest;
 
 import com.thomas.forum.tempTest.World;
-import com.thomas.forum.tempTest.infra.BankPublic;
+import com.thomas.forum.tempTest.infra.WorldMoney;
 import com.thomas.forum.tempTest.infra.MoneySelection;
 
 public class Accountant extends Person {
@@ -17,10 +17,10 @@ public class Accountant extends Person {
         int grabMoney = MoneySelection.FIVE_HUNDRED.getMoney();
         if (grabMoney < 0) {
             System.out.println("cannot nagative");
-        } else if (!(BankPublic.getPublicMoney() < grabMoney)) {
-            BankPublic.setPublicMoney(BankPublic.getPublicMoney() - grabMoney);
+        } else if (!(WorldMoney.getPublicMoney() < grabMoney)) {
+            WorldMoney.setPublicMoney(WorldMoney.getPublicMoney() - grabMoney);
             System.out.printf("%s Grabed %d\nWorld money balance: %d\n\n", name,
-                    grabMoney, BankPublic.getPublicMoney());
+                    grabMoney, WorldMoney.getPublicMoney());
         } else {
             System.out.printf("%s cannot grab money\n", name);
         }
