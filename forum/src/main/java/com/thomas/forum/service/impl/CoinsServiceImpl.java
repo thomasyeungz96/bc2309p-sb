@@ -8,6 +8,7 @@ import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.thomas.forum.infra.ForumUtil;
@@ -16,6 +17,9 @@ import com.thomas.forum.service.CoinService;
 
 @Service
 public class CoinsServiceImpl implements CoinService {
+
+
+  @Value()
 
   @Autowired
   private RestTemplate restTemplate;
@@ -26,6 +30,8 @@ public class CoinsServiceImpl implements CoinService {
     String url =
         // "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum&locale=zh-tw&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G";
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G";
+
+        https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G
 
     Coin[] coins = restTemplate.getForObject(url, Coin[].class);
 

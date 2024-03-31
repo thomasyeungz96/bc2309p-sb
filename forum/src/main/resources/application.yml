@@ -1,0 +1,24 @@
+server:
+ port: 8083
+
+ api: 
+  coingecko:
+    domain: "api.coingecko.com"
+    endpoints:
+      coins: "/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G"
+      
+
+database:
+  postgres: "db_2309p_coingecko"
+
+spring.datasource:
+  # driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
+  driverClassName: "org.postgresql.Driver"
+  url: "jdbc:postgresql://localhost:5432/${database.postgres}"
+  username: "postgres"
+  password: "admin1234"
+
+
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: update # update
