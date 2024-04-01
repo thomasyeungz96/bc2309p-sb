@@ -1,15 +1,14 @@
 server:
- port: 8083
-
- api: 
-  coingecko:
-    domain: "api.coingecko.com"
-    endpoints:
-      coins: "/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G"
-      
+  port: 8083
 
 database:
   postgres: "db_2309p_coingecko"
+
+  api:
+    digital_coin:
+      domain: "api.coingecko.com"
+      endpoints:
+        coins: "/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G/"
 
 spring.datasource:
   # driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
@@ -17,7 +16,6 @@ spring.datasource:
   url: "jdbc:postgresql://localhost:5432/${database.postgres}"
   username: "postgres"
   password: "admin1234"
-
 
 spring.jpa:
   show-sql: true
