@@ -4,5 +4,8 @@ public enum Schema {
 
     HTTP, HTTPS,
 
+    // public String toLowerString() {
+    //     return this.name().toLowerCase();
+    // }
 
 }

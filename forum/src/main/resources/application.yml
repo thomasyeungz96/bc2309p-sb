@@ -1,21 +1,31 @@
 server:
   port: 8083
 
-database:
-  postgres: "db_2309p_coingecko"
+api:
+  digitalcoin:
+    domain: "api.coingecko.com"
+    endpoints:
+      coins: "/api/v3/coins/markets"
+      currency_key: "vs_currency"
+      currency_value: "usd"
+      key_key: "x_cg_demo_api_key"
+      key_value: "CG-1BuKWfyB3SqyjPYXtLpcQ83G"
 
-  api:
-    digital_coin:
-      domain: "api.coingecko.com"
-      endpoints:
-        coins: "/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G/"
+  jph:
+    domain: "jsonplaceholder.typicode.com"
+    endpoints:
+      users: "users"
 
-spring.datasource:
-  # driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
-  driverClassName: "org.postgresql.Driver"
-  url: "jdbc:postgresql://localhost:5432/${database.postgres}"
-  username: "postgres"
-  password: "admin1234"
+# "https://jsonplaceholder.typicode.com/users"
+
+# "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G"
+
+spring:
+  datasource:
+    driverClassName: "org.postgresql.Driver"
+    url: "jdbc:postgresql://localhost:5432/coins_db"
+    username: "postgres"
+    password: "admin1234"
 
 spring.jpa:
   show-sql: true

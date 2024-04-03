@@ -22,25 +22,25 @@ public class Coin {
   private String symbol;
   private String name;
   private String image;
-  private long current_price;
-  private long market_cap;
-  private long market_cap_rank;
-  private long fully_diluted_valuation;
-  private long total_volume;
-  private long high_24h;
-  private long low_24h;
-  private double price_change_24h;
-  private double price_change_percentage_24h;
-  private double market_cap_change_24h;
-  private double market_cap_change_percentage_24h;
-  private double circulating_supply;
-  private double total_supply;
-  private double max_supply;
-  private long ath;
-  private double ath_change_percentage;
+  private Long current_price;
+  private Long market_cap;
+  private Long market_cap_rank;
+  private Long fully_diluted_valuation;
+  private Long total_volume;
+  private Long high_24h;
+  private Long low_24h;
+  private Double price_change_24h;
+  private Double price_change_percentage_24h;
+  private Double market_cap_change_24h;
+  private Double market_cap_change_percentage_24h;
+  private Double circulating_supply;
+  private Double total_supply;
+  private Double max_supply;
+  private Long ath;
+  private Double ath_change_percentage;
   private String ath_date;
-  private double atl;
-  private double atl_change_percentage;
+  private Double atl;
+  private Double atl_change_percentage;
   private String atl_date;
   private Roi roi;
   private String last_updated;
@@ -51,9 +51,9 @@ public class Coin {
   @ToString
   public static class Roi {
 
-    private double times;
+    private Double times;
     private String currency;
-    private double percentage;
+    private Double percentage;
 
   }
 
