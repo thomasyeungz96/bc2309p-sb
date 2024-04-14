@@ -62,7 +62,7 @@ public class CoinsServiceImpl implements CoinService {
 
     Coin[] coins = restTemplate.getForObject(url, Coin[].class);
 
-    List<Coin> coinsList = Arrays.asList(coins);
+    List<Coin> coinsList = Arrays.asList(coins); // cannot add 
 
     List<CoinEntity> coinsEntities = coinsList.stream()
         .map(e -> {
@@ -104,7 +104,7 @@ public class CoinsServiceImpl implements CoinService {
         })
         .collect(Collectors.toList());
 
-    if (Times.count < 3) {
+    if (Times.count < 2) {
       coinsRepository.deleteAll();
       Times.count++;
     }
