@@ -50,6 +50,17 @@ public class CoinsServiceImpl implements CoinService {
   private CoinsRepository coinsRepository;
 
   @Override
+  public String getUrl() {
+
+    String url = UriComponentsBuilder.newInstance()
+        .scheme(Schema.HTTPS.name().toLowerCase()).host(domin).path(endpoints)
+        .queryParam(currencyKey, currencyValue).queryParam(key, keyValue)
+        .toUriString();
+
+    return url;
+  }
+
+  @Override
   public List<Coin> getCoins() throws RuntimeException {
 
     String url = UriComponentsBuilder.newInstance()
@@ -62,7 +73,7 @@ public class CoinsServiceImpl implements CoinService {
 
     Coin[] coins = restTemplate.getForObject(url, Coin[].class);
 
-    List<Coin> coinsList = Arrays.asList(coins); // cannot add 
+    List<Coin> coinsList = Arrays.asList(coins); // cannot add
 
     List<CoinEntity> coinsEntities = coinsList.stream()
         .map(e -> {
@@ -109,7 +120,7 @@ public class CoinsServiceImpl implements CoinService {
       Times.count++;
     }
     coinsRepository.saveAll(coinsEntities);
-    
+
     return coinsList;
 
   }
