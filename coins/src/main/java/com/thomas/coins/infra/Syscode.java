@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 public enum Syscode {
 
-  OK("0001", "The API is fine"),
+  OK("0001", "The API is fine", "URL"),
   NULLPOINTER("0002", "Null pointer"),
   NO_RESPONDED("404", "No Responded URL", "URL"),
   ;

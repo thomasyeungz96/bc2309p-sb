@@ -15,7 +15,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-
 @ToString
 public class ApiResponse<T> {
 
