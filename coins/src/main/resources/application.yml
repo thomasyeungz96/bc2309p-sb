@@ -5,7 +5,8 @@ api:
   digitalcoin:
     domain: "api.coingecko.com"
     endpoints:
-      coins: "/api/v2/coins/markets"
+      coins: "/api/v1/coins/markets"
+    param:
       currency_key: "vs_currency"
       currency_value: "usd"
       key_key: "x_cg_demo_api_key"

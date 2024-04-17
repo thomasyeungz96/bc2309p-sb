@@ -31,16 +31,16 @@ public class CoinsServiceImpl implements CoinService {
   @Value("${api.digitalcoin.endpoints.coins}")
   private String endpoints;
 
-  @Value("${api.digitalcoin.endpoints.currency_key}")
+  @Value("${api.digitalcoin.param.currency_key}")
   private String currencyKey;
 
-  @Value("${api.digitalcoin.endpoints.currency_value}")
+  @Value("${api.digitalcoin.param.currency_value}")
   private String currencyValue;
 
-  @Value("${api.digitalcoin.endpoints.key_key}")
+  @Value("${api.digitalcoin.param.key_key}")
   private String key;
 
-  @Value("${api.digitalcoin.endpoints.key_value}")
+  @Value("${api.digitalcoin.param.key_value}")
   private String keyValue;
 
   @Autowired

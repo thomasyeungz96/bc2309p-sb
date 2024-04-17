@@ -40,6 +40,6 @@ public class ForumUtil {
     System.out.println();
   }
 
-  
-  
+
+
 }

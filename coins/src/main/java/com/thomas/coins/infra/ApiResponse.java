@@ -42,9 +42,11 @@ public class ApiResponse<T> {
             this.message = syscode.getMessage();
             return this;
         }
+
         public ApiResponseBuilder<T> status(Syscode syscode, String url) {
             this.code = syscode.getCode();
-            this.message = syscode.getMessage().concat(": ").concat(syscode.setUrl(url).getUrl());
+            this.message = syscode.getMessage() + ":" + "\n"
+                    + syscode.setUrl(url).getUrl();
             return this;
         }
 
@@ -54,7 +56,8 @@ public class ApiResponse<T> {
         }
 
         public ApiResponse<T> build() {
-            return new ApiResponse<T>(this.getCode(), this.getMessage(), this.getData());
+            return new ApiResponse<T>(this.getCode(), this.getMessage(),
+                    this.getData());
         }
 
     }
