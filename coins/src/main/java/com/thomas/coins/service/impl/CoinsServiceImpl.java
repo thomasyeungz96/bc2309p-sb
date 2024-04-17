@@ -63,10 +63,7 @@ public class CoinsServiceImpl implements CoinService {
   @Override
   public List<Coin> getCoins() throws RuntimeException {
 
-    String url = UriComponentsBuilder.newInstance()
-        .scheme(Schema.HTTPS.name().toLowerCase()).host(domin).path(endpoints)
-        .queryParam(currencyKey, currencyValue).queryParam(key, keyValue)
-        .toUriString();
+    String url = getUrl(); 
 
     // url =
     // "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&x_cg_demo_api_key=CG-1BuKWfyB3SqyjPYXtLpcQ83G";
